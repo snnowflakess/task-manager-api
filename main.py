@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from starlette.middleware.sessions import SessionMiddleware
+from starlette.middleware.sessions import SessionMiddleware #oauth 
 from fastapi import Request
 from fastapi import FastAPI, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
