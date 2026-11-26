@@ -1,4 +1,4 @@
-
+#1.login
 def register_and_login(client, email="test@example.com"):
     # Register a test user
     client.post(
@@ -58,7 +58,7 @@ def test_create_task(client):
 
 
 def test_user_cannot_access_another_users_task(client):
-    # First user creates a task
+    # 2.First user creates a task
     first_headers = register_and_login(
         client, "first@example.com"
     )
@@ -76,7 +76,7 @@ def test_user_cannot_access_another_users_task(client):
 
     task_id = task_response.json()["id"]
 
-    # Second user tries to access it
+    # 3.Second user tries to access it
     second_headers = register_and_login(
         client, "second@example.com"
     )
@@ -92,7 +92,7 @@ def test_user_cannot_access_another_users_task(client):
 def test_task_pagination(client):
     headers = register_and_login(client)
 
-    # Create three tasks
+    # 5. pagination Create three tasks
     for number in range(1, 4):
         response = client.post(
             "/tasks",
